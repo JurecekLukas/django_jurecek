@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Detailní statistika{% endblock %}
+
+{% block content %}
+    <hr>
+    <h2 class="text-center">{{ Statistiky.jmeno }}</h2>
+    <hr>
+    <div class="row">
+        <div class="col text-center">
+            <p><img src="{{ Statistiky.foto.url }}" alt="{{ Statistiky.jmeno }}" width="75%"></p>
+        </div>
+        <div class="col">
+            <p><b>Kategorie:</b> {{ Statistiky.druh.oblast }} - {{ Statistiky.druh.oznaceni_druhu }}</p>
+            <hr>
+            <p><b>Popis:</b> {{ Statistiky.popis }}</p>
+        </div>
+    </div>
+{% endblock %}

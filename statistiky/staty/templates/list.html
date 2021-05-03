@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Přehled hráče{% endblock %}
+
+{% block content %}
+    <hr>
+    {% for Statistiky in staty_list %}
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <p><img src="{{ Statistiky.foto.url }}" alt="{{ Statistiky.jmeno }}" width="50%"></p>
+            </div>
+            <div class="col-sm-8">
+                <h3><a href="{% url 'detail' Statistiky.pk %}">{{ Statistiky.jmeno }} {{ Statistiky.prijmeni }}</a></h3>
+                <hr>
+                <p><b>Hodnocení:</b> {% for star in "x"|ljust:Statistiky.kvalita %} * {% endfor %}</p>
+                <hr>
+                <p><b>Typ hráče:</b> {{ Statistiky.druh.oblast }} - {{ Statistiky.druh.oznaceni_druhu }}</p>
+             </div>
+        </div>
+    <hr>
+    {% endfor %}
+{% endblock %}
