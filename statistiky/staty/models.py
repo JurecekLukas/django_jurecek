@@ -18,7 +18,7 @@ class Druh(models.Model):
     class Meta:
         ordering = ["oznaceni_druhu"]
         verbose_name = 'Druh hráče'
-        verbose_name_plural = 'Druh hráče'
+        verbose_name_plural = 'Druh hráčů'
 
     def __str__(self):
         return f"{self.oznaceni_druhu}, {self.oblast}"
@@ -47,12 +47,12 @@ class Statistiky(models.Model):
 
     class Meta:
         ordering = ["prijmeni"]
-        verbose_name = 'staty'
+        verbose_name = 'stat'
         verbose_name_plural = 'staty'
 
     def __str__(self):
         return f"{self.jmeno}"
 
     def get_absolute_url(self):
-        """Metoda vrací URL stránky, na které se vypisují podrobné informace o zboží"""
+        """Metoda vrací URL stránky, na které se vypisují podrobné informace o hráči"""
         return reverse('detail', args=[str(self.id)])

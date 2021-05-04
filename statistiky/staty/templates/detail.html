@@ -4,16 +4,21 @@
 
 {% block content %}
     <hr>
-    <h2 class="text-center">{{ Statistiky.jmeno }}</h2>
+    <h2 class="text-center">{{ statistiky.jmeno }}</h2>
     <hr>
     <div class="row">
         <div class="col text-center">
-            <p><img src="{{ Statistiky.foto.url }}" alt="{{ Statistiky.jmeno }}" width="75%"></p>
+            <p><img src="{{ statistiky.foto.url }}" alt="{{ statistiky.jmeno }}" width="75%"></p>
         </div>
         <div class="col">
-            <p><b>Kategorie:</b> {{ Statistiky.druh.oblast }} - {{ Statistiky.druh.oznaceni_druhu }}</p>
+            <p><b>Kategorie:</b> {{ statistiky.druh.oblast }} - {{ statistiky.druh.oznaceni_druhu }}</p>
             <hr>
-            <p><b>Popis:</b> {{ Statistiky.popis }}</p>
+             <p><b>Hodnocení:</b> {% for star in "x"|ljust:statistiky.kvalita %} * {% endfor %}</p>
+             <hr>
+            <p><b>Popis:</b> {{ statistiky.popis }}</p>
+            <hr>
+            <p><b>Výplata:</b> {{ statistiky.vyplata }} USD</p>
+            <hr>
         </div>
     </div>
 {% endblock %}
